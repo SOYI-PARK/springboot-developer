@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    # 전송 쿼리 확인
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+    #테이블 생성 후 data.sql 실행(데이터 초기화)
+    defer-datasource-initialization: true
+
+  h2:
+      console:
+        enabled: true
+
+  # 들여쓰기에 주의할 것!
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+
+jwt:
+    issuer: ajufresh@gmail.com
+    secret_key: ${JWT_SECRET_KEY}
+
